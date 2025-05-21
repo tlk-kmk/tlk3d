@@ -668,11 +668,11 @@ canvas.webgl {
     }
 
     .foundation {
-        padding: 8px;
+        padding: 8px 4px 8px 4px;
     }
 
     .foundation-content {
-        border-radius: 12px;
+        border-radius: 8px;
     }
 
     .type {
