@@ -172,7 +172,7 @@
     .clickable.active path:nth-of-type(1),
   .star.active path:nth-of-type(1) {
     fill: #ff9100 !important;
-    transform: scale(1.32)!important;
+    transform: scale(1.52)!important;
     filter: none !important;
   }
 
