@@ -12,19 +12,6 @@
   overflow: visible;
 }
 
-.ui-stars svg {
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  -webkit-transform: translate3d(0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  overflow: visible;
-}
-
-.ui-stars svg path {
-  will-change: filter, transform;
-  backface-visibility: visible;
-}
-
 /* Set default styles and transitions for all paths */
 .ui-stars a.clickable path {
   fill: #F6F7FF;
@@ -48,23 +35,23 @@
 
 .ui-stars a.clickable.active path:nth-of-type(2) {
   fill: #FFFB00;
-  filter: url(#blur-2);
+  filter: blur(2px);
 }
 
 .ui-stars a.clickable.active path:nth-of-type(3) {
   fill: #FF008C;
-  filter: url(#blur-4);
+  filter: blur(4px);
 }
 
 .ui-stars a.clickable.active path:nth-of-type(4) {
   fill: #FF0000;
-  filter: url(#blur-8);
+  filter: blur(8px);
 }
 
 .ui-stars a.clickable.active path:nth-of-type(5),
 .ui-stars a.clickable.active path:nth-of-type(6) {
   fill: #FF0000;
-  filter: url(#blur-16);
+  filter: blur(16px);
 }
 
 /* Non-active hover state */
@@ -78,20 +65,20 @@
 }
 
 .ui-stars a.clickable:not(.active):hover path:nth-of-type(2) {
-  filter: url(#blur-2);
+  filter: blur(2px);
 }
 
 .ui-stars a.clickable:not(.active):hover path:nth-of-type(3) {
-  filter: url(#blur-4);
+  filter: blur(4px);
 }
 
 .ui-stars a.clickable:not(.active):hover path:nth-of-type(4) {
-  filter: url(#blur-8);
+  filter: blur(8px);
 }
 
 .ui-stars a.clickable:not(.active):hover path:nth-of-type(5),
 .ui-stars a.clickable:not(.active):hover path:nth-of-type(6) {
-  filter: url(#blur-16);
+  filter: blur(16px);
 }
 
 
@@ -104,31 +91,31 @@
 .ui-bot-right a:nth-of-type(1):hover svg path:nth-of-type(4),
 .ui-bot-right a:nth-of-type(1):hover svg path:nth-of-type(5),
 .ui-bot-right a:nth-of-type(1):hover svg path:nth-of-type(6) {
-  filter: url(#blur-12);
+  filter: blur(12px);
 }
 
 .ui-bot-right a:nth-of-type(1):hover svg path:nth-of-type(7),
 .ui-bot-right a:nth-of-type(1):hover svg path:nth-of-type(8),
 .ui-bot-right a:nth-of-type(1):hover svg path:nth-of-type(9) {
-  filter: url(#blur-20);
+  filter: blur(20px);
 }
 
 /* 2nd SVG (X) */
 .ui-bot-right a:nth-of-type(2):hover svg path:nth-of-type(2) {
-  filter: url(#blur-12);
+  filter: blur(12px);
 }
 
 .ui-bot-right a:nth-of-type(2):hover svg path:nth-of-type(3) {
-  filter: url(#blur-20);
+  filter: blur(20px);
 }
 
 /* 3rd SVG (Discord) */
 .ui-bot-right a:nth-of-type(3):hover svg path:nth-of-type(2) {
-  filter: url(#blur-12);
+  filter: blur(12px);
 }
 
 .ui-bot-right a:nth-of-type(3):hover svg path:nth-of-type(3) {
-  filter: url(#blur-20);
+  filter: blur(12px);
 }
 
 

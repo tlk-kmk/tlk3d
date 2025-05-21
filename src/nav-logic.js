@@ -74,34 +74,59 @@ function setActiveNavItem(index) {
   const allNavItems = document.querySelectorAll('.nav-item');
   const matchedItems = document.querySelectorAll(`.nav-item[data-index="${index}"]`);
 
-  allNavItems.forEach(item => {
-    item.classList.remove('active');
+  // Remove .active from all .nav-items (desktop & mobile)
+  allNavItems.forEach(item => item.classList.remove('active'));
+
+  // Deactivate .clickable and .star elements — safely remove transitions
+  [...document.querySelectorAll('.clickable, .star')].forEach(el => {
+    if (el.classList.contains('active')) {
+      const paths = el.querySelectorAll('path');
+
+      // Prevent hover transition glitch
+      el.style.pointerEvents = 'none';
+      paths.forEach(path => {
+        path.style.transition = 'none';
+      });
+
+      el.classList.remove('active');
+      void el.offsetWidth; // Force reflow
+
+      // Restore transitions
+      requestAnimationFrame(() => {
+        el.style.pointerEvents = '';
+        paths.forEach(path => {
+          path.style.transition = '';
+        });
+      });
+    }
   });
 
+  // Animate out previous headline/letters if needed
   if (previousNavItem && ![...matchedItems].includes(previousNavItem)) {
     animateLettersOut(previousNavItem);
   }
 
+  // Add .active to current nav-items and trigger animations
   matchedItems.forEach(item => {
     item.classList.add('active');
     animateLettersIn(item);
   });
 
+  // Sync clickable stars
   document.querySelectorAll('.ui-stars .clickable').forEach(star => {
     star.classList.toggle('active', star.getAttribute('data-index') === index);
   });
 
+  // Sync .headline-copy
   document.querySelectorAll('.headline-copy').forEach(copy => {
     const isActive = copy.getAttribute('data-index') === index;
     copy.classList.toggle('active', isActive);
-
-    if (isActive) {
-      animateHeadlineIn(copy);
-    }
+    if (isActive) animateHeadlineIn(copy);
   });
 
   previousNavItem = matchedItems[0];
 }
+
 
 function animateHeadlineIn(copyBlock) {
   const elements = copyBlock.querySelectorAll('h2, p');
