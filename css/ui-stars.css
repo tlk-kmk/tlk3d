@@ -1,0 +1,142 @@
+/* UI Stars wrapper */
+.ui-stars {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  flex-direction: column;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Set default styles and transitions for all paths */
+.ui-stars a.clickable path {
+  fill: #F6F7FF;
+  filter: none;
+  transform: none;
+  transition:
+    filter 0.3s ease-out,
+    fill 0.3s ease-out,
+    transform 0.3s ease-out;
+  transform-origin: center;
+}
+
+/* Active state */
+.ui-stars a.clickable.active path {
+  transform: scale(1.2);
+}
+
+.ui-stars a.clickable.active path:nth-of-type(1) {
+  fill: #FFFB00;
+  filter: none;
+}
+
+.ui-stars a.clickable.active path:nth-of-type(2) {
+  fill: #FFFB00;
+  filter: blur(2px);
+}
+
+.ui-stars a.clickable.active path:nth-of-type(3) {
+  fill: #FF008C;
+  filter: blur(4px);
+}
+
+.ui-stars a.clickable.active path:nth-of-type(4) {
+  fill: #FF0000;
+  filter: blur(8px);
+}
+
+.ui-stars a.clickable.active path:nth-of-type(5),
+.ui-stars a.clickable.active path:nth-of-type(6) {
+  fill: #FF0000;
+  filter: blur(16px);
+}
+
+/* Non-active hover state */
+.ui-stars a.clickable:not(.active):hover svg {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.ui-stars a.clickable:not(.active):hover path:nth-of-type(1) {
+  filter: none;
+}
+
+.ui-stars a.clickable:not(.active):hover path:nth-of-type(2) {
+  filter: blur(2px);
+}
+
+.ui-stars a.clickable:not(.active):hover path:nth-of-type(3) {
+  filter: blur(4px);
+}
+
+.ui-stars a.clickable:not(.active):hover path:nth-of-type(4) {
+  filter: blur(8px);
+}
+
+.ui-stars a.clickable:not(.active):hover path:nth-of-type(5),
+.ui-stars a.clickable:not(.active):hover path:nth-of-type(6) {
+  filter: blur(16px);
+}
+
+
+.social-media svg path {
+  transition: filter 0.3s ease-out;
+  pointer-events: none;
+}
+
+/* 1st SVG (Behance) */
+.ui-bot-right a:nth-of-type(1):hover svg path:nth-of-type(4),
+.ui-bot-right a:nth-of-type(1):hover svg path:nth-of-type(5),
+.ui-bot-right a:nth-of-type(1):hover svg path:nth-of-type(6) {
+  filter: blur(12px);
+}
+
+.ui-bot-right a:nth-of-type(1):hover svg path:nth-of-type(7),
+.ui-bot-right a:nth-of-type(1):hover svg path:nth-of-type(8),
+.ui-bot-right a:nth-of-type(1):hover svg path:nth-of-type(9) {
+  filter: blur(20px);
+}
+
+/* 2nd SVG (X) */
+.ui-bot-right a:nth-of-type(2):hover svg path:nth-of-type(2) {
+  filter: blur(12px);
+}
+
+.ui-bot-right a:nth-of-type(2):hover svg path:nth-of-type(3) {
+  filter: blur(20px);
+}
+
+/* 3rd SVG (Discord) */
+.ui-bot-right a:nth-of-type(3):hover svg path:nth-of-type(2) {
+  filter: blur(12px);
+}
+
+.ui-bot-right a:nth-of-type(3):hover svg path:nth-of-type(3) {
+  filter: blur(20px);
+}
+
+
+@media (max-width: 767px) {
+
+    .ui-stars {
+
+        right: 0; 
+        left: auto;
+        transform: translateX(0%);
+        gap: 24px;
+        align-items: flex-end;
+        justify-content: right;
+        width: 100%;
+
+    }
+
+    .ui-stars div div {
+
+      width: 100%;
+
+    }
+
+}
