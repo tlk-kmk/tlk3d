@@ -12,55 +12,78 @@
   overflow: visible;
 }
 
-/* Set default styles and transitions for all paths */
-.ui-stars a.clickable path {
+/* Default SVG behavior */
+.ui-stars svg {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+}
+
+/* Transition only if .animate is present */
+.ui-stars .animate path {
+  transition:
+    filter 0.3s ease-out,
+    fill 0.3s ease-out,
+    transform 0.3s ease-out;
+}
+
+/* Base path style */
+.ui-stars a.clickable path,
+.ui-stars .star path {
   fill: #F6F7FF;
   filter: none;
   transform: none;
-  transition:
-    filter 0.3s ease-out,
-    transform 0.3s ease-out;
   transform-origin: center;
 }
 
-/* Active state */
-.ui-stars a.clickable.active path {
+/* Active state - no animation unless .animate is present */
+.ui-stars a.clickable.active path,
+.ui-stars .star.active path {
   transform: scale(1.2);
 }
 
-.ui-stars a.clickable.active path:nth-of-type(1) {
+/* Fill & blur based on path index */
+.ui-stars a.clickable.active path:nth-of-type(1),
+.ui-stars .star.active path:nth-of-type(1) {
   fill: #FFFB00;
   filter: none;
 }
 
-.ui-stars a.clickable.active path:nth-of-type(2) {
+.ui-stars a.clickable.active path:nth-of-type(2),
+.ui-stars .star.active path:nth-of-type(2) {
   fill: #FFFB00;
   filter: blur(2px);
 }
 
-.ui-stars a.clickable.active path:nth-of-type(3) {
+.ui-stars a.clickable.active path:nth-of-type(3),
+.ui-stars .star.active path:nth-of-type(3) {
   fill: #FF008C;
   filter: blur(4px);
 }
 
-.ui-stars a.clickable.active path:nth-of-type(4) {
+.ui-stars a.clickable.active path:nth-of-type(4),
+.ui-stars .star.active path:nth-of-type(4) {
   fill: #FF0000;
   filter: blur(8px);
 }
 
 .ui-stars a.clickable.active path:nth-of-type(5),
-.ui-stars a.clickable.active path:nth-of-type(6) {
+.ui-stars a.clickable.active path:nth-of-type(6),
+.ui-stars .star.active path:nth-of-type(5),
+.ui-stars .star.active path:nth-of-type(6) {
   fill: #FF0000;
   filter: blur(16px);
 }
 
-/* Non-active hover state */
+/* Hover state */
 .ui-stars a.clickable:not(.active):hover svg {
   transform: scale(1.2);
   transform-origin: center;
 }
 
 .ui-stars a.clickable:not(.active):hover path:nth-of-type(1) {
+  fill: #FFFB00;
   filter: none;
 }
 
@@ -80,6 +103,7 @@
 .ui-stars a.clickable:not(.active):hover path:nth-of-type(6) {
   filter: blur(16px);
 }
+
 
 
 .social-media svg path {

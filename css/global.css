@@ -429,7 +429,6 @@ body, html {
     height: 24px;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
     font-size: 18px;
     font-family: 'aerion-regular', sans-serif;
     color: var(--grey);
