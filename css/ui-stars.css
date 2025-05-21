@@ -145,6 +145,10 @@
 
 @media (max-width: 767px) {
 
+    .ui-stars .animate path {
+      transition: none !important;
+    }
+
     .ui-stars {
 
         right: 0; 
@@ -165,31 +169,34 @@
 
     .clickable.active path:nth-of-type(1),
   .star.active path:nth-of-type(1) {
-    fill: #ffb700 !important;
+    fill: #FFFB00 !important;
     filter: none !important;
   }
 
   .clickable.active path:nth-of-type(2),
   .star.active path:nth-of-type(2) {
-    fill: #FF0000;
-    transform: scale(1.2);
+    fill: #FFFB00;
+    filter: blur(2px);
   }
 
   .clickable.active path:nth-of-type(3),
   .star.active path:nth-of-type(3) {
-    display: none;
+    fill: #FF008C;
+    filter: blur(4px);
   }
 
   .clickable.active path:nth-of-type(4),
   .star.active path:nth-of-type(4) {
-    display: none;
+    fill: #FF0000;
+    filter: blur(8px);
   }
 
   .clickable.active path:nth-of-type(5),
   .clickable.active path:nth-of-type(6),
   .star.active path:nth-of-type(5),
   .star.active path:nth-of-type(6) {
-    display: none;
+    fill: #FF0000;
+    filter: blur(16px);
   }
 
 }
