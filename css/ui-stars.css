@@ -9,6 +9,7 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  overflow: visible;
 }
 
 .ui-stars svg {
@@ -16,10 +17,12 @@
   backface-visibility: hidden;
   -webkit-transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
+  overflow: visible;
 }
 
 .ui-stars svg path {
   will-change: filter, transform;
+  backface-visibility: visible;
 }
 
 /* Set default styles and transitions for all paths */
@@ -29,7 +32,6 @@
   transform: none;
   transition:
     filter 0.3s ease-out,
-    fill 0.3s ease-out,
     transform 0.3s ease-out;
   transform-origin: center;
 }
