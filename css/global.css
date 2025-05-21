@@ -218,8 +218,9 @@ body, html {
 .alt-text {
 
     display: inline-block;
-    overflow: hidden;
     height: 100%;
+    white-space: nowrap;
+    overflow: visible;
     font-feature-settings: 
     "liga" 1,   /* standard ligatures */
     "dlig" 1,   /* discretionary ligatures */
@@ -241,6 +242,7 @@ body, html {
   display: inline-block;
   transform: translateY(100%);
   opacity: 0;
+  overflow: visible;
 }
 
 .svg-wrap {
