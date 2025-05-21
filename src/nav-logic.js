@@ -77,62 +77,55 @@ function setActiveNavItem(index) {
   // Remove .active from all .nav-items (desktop & mobile)
   allNavItems.forEach(item => item.classList.remove('active'));
 
-  // Step 1: Deactivate all stars instantly (desktop + mobile)
-  document.querySelectorAll('.clickable, .star').forEach(el => {
-    if (el.classList.contains('active')) {
-      el.classList.remove('active');
-      el.classList.remove('animate');
+  // Deactivate .clickable and .star elements — safely remove transitions
+[...document.querySelectorAll('.clickable, .star')].forEach(el => {
+  if (el.classList.contains('active')) {
+    const paths = el.querySelectorAll('path');
 
-      // Immediately reset styles on all paths
-      const paths = el.querySelectorAll('path');
-      paths.forEach(path => {
-        path.style.transition = 'none';
-        path.style.filter = 'none';
-        path.style.transform = 'none';
-        path.style.fill = '#F6F7FF'; // Reset to idle fill color
-      });
+    // Prevent hover transition glitch
+    el.style.pointerEvents = 'none';
+    paths.forEach(path => {
+      path.style.transition = 'none';
+    });
 
-      // Force reflow to apply the instant reset before re-enabling transitions
-      void el.offsetWidth;
+    el.classList.remove('active');
+    void el.offsetWidth; // Force reflow
 
-      // Clean up inline styles so CSS transitions work again
+    // ❗ Slightly delay re-enabling to avoid flash of hover
+    setTimeout(() => {
+      el.style.pointerEvents = '';
       paths.forEach(path => {
         path.style.transition = '';
-        path.style.filter = '';
-        path.style.transform = '';
-        path.style.fill = '';
       });
-    }
-  });
+    }, 50); // 1–2 frames delay (~50ms)
+  }
+});
 
   // Animate out previous headline/letters if needed
   if (previousNavItem && ![...matchedItems].includes(previousNavItem)) {
     animateLettersOut(previousNavItem);
   }
 
-  // Step 2: Activate current nav-items
+  // Add .active to current nav-items and trigger animations
   matchedItems.forEach(item => {
     item.classList.add('active');
     animateLettersIn(item);
   });
 
-  // Step 3: Activate matching clickable stars and stars inside nav-items
-  document.querySelectorAll(`.clickable[data-index="${index}"], .nav-item[data-index="${index}"] .star`).forEach(el => {
-    el.classList.add('active');
-    el.classList.add('animate'); // Enables transition
+  // Sync clickable stars
+  document.querySelectorAll('.ui-stars .clickable').forEach(star => {
+    star.classList.toggle('active', star.getAttribute('data-index') === index);
   });
 
-  // Step 4: Update headline copy blocks
+  // Sync .headline-copy
   document.querySelectorAll('.headline-copy').forEach(copy => {
     const isActive = copy.getAttribute('data-index') === index;
     copy.classList.toggle('active', isActive);
     if (isActive) animateHeadlineIn(copy);
   });
 
-  // Update reference to previous nav item
   previousNavItem = matchedItems[0];
 }
-
 
 
 function animateHeadlineIn(copyBlock) {

@@ -240,7 +240,7 @@ function loadModel() {
   gltfLoader.load(
     'assets/3d/desert-2.glb',
     (gltf) => {
-      const model = gltf.scene
+      const model = gltf.scene;
       model.traverse((child) => {
         if (!child.isMesh) return
 

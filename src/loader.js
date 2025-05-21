@@ -48,7 +48,7 @@
     `;
 
     const video = document.createElement('video');
-    video.src = 'assets/scripts/loader.webm';
+    video.src = '/src/loader.webm';
     video.muted = true;
     video.playsInline = true;
     video.style.cssText = `
