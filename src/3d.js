@@ -1,7 +1,6 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
-import { MeshTransmissionMaterial } from './MeshTransmissionMaterial.js'
 import { EXRLoader } from 'three/examples/jsm/loaders/EXRLoader.js';
 import * as dat from 'dat.gui';
 
