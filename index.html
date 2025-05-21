@@ -318,22 +318,23 @@
         import { initRiveAnimation } from '/assets/scripts/rive-menu.js';
 
         window.addEventListener('DOMContentLoaded', () => {
-        initRiveAnimation({
-            src: 'assets/rive/burgermenu.riv',
-            canvasId: 'rive-menu',
-            artboard: 'artboard',
-            stateMachine: 'stateMachine',
-            triggerName: 'Click'
-        });
+            initRiveAnimation({
+                src: '/assets/rive/burgermenu.riv',
+                canvasId: 'rive-menu',
+                artboard: 'artboard',
+                stateMachine: 'stateMachine',
+                triggerName: 'Click'
+            });
         });
     </script>
 
-    <!-- Scripts -->
-    <script type="module" src="assets/scripts/3d.js"></script>
-    <script src="assets/scripts/star-nav.js"></script>
-    <script src="assets/scripts/nav-logic.js"></script>
-    <script src="assets/scripts/customCursor.js"></script>
-    <script src="assets/scripts/loader.js"></script>
+
+    <!-- Vite-compatible module scripts -->
+    <script type="module" src="/assets/scripts/3d.js"></script>
+    <script type="module" src="/assets/scripts/star-nav.js"></script>
+    <script type="module" src="/assets/scripts/nav-logic.js"></script>
+    <script type="module" src="/assets/scripts/customCursor.js"></script>
+    <script type="module" src="/assets/scripts/loader.js"></script>
     <script>
         window.initLoader(() => {
             console.log('Loader complete!');
